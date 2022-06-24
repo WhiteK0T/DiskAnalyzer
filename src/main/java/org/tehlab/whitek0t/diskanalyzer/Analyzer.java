@@ -17,8 +17,8 @@ public class Analyzer {
         try {
             Files.walkFileTree(path, new SimpleFileVisitor<>() {
                 @Override
-                public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-                    long size = Files.size(file);
+                public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
+                    long size = attrs.size();
                     updateDirSize(file, size);
                     return FileVisitResult.CONTINUE;
                 }
